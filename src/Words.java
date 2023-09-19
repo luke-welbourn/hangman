@@ -39,4 +39,15 @@ public class Words {
         upperLimit -= 1;
         return words.get(upperLimit);
     }
+
+    public String getList() {
+        StringBuilder wordList = new StringBuilder("List of Words:\n");
+
+        for (String word : words) {
+            wordList.append(word).append("\n");
+        }
+
+        return wordList.toString();
+    }
+
 }

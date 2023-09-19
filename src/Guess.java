@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Guess {
 
-    private static Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     private ArrayList currentGuess = new ArrayList();
     private ArrayList currentWord = new ArrayList();

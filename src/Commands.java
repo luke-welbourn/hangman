@@ -4,7 +4,7 @@ public class Commands {
 
     private final Scanner scanner = new Scanner(System.in);
     private String name = "Commands";
-    private String[] commands = {"Start Game", "Credits", "Quit"  };
+    private String[] commands = {"Start Game", "Credits", "Word List", "Quit"  };
 
     private void setName(String name) {
         this.name = name;
@@ -35,15 +35,26 @@ public class Commands {
 
     public int getIntegerInput() {
         System.out.print("Enter your choice: ");
-        String input = scanner.nextLine();
+        String input = scanner.nextLine().trim();
 
-        while (Integer.parseInt(input) < 0 || Integer.parseInt(input) >= commands.length) {
-            System.out.println("That is not a valid input");
+        while (input.matches("[a-zA-Z]+")) {
+            System.out.println();
+            System.out.println("input must be a number");
             System.out.print("Enter your choice: ");
-            input = scanner.nextLine();
+            input = scanner.nextLine().trim();
         }
-        return Integer.parseInt(input);
+
+        int choice = Integer.parseInt(input);
+
+        while (choice < 0 || choice >= commands.length) {
+            System.out.println();
+            System.out.println("number must be between 0 and " + commands.length);
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+        }
+        return choice;
     }
+
 
 
     public String getStringInput() {

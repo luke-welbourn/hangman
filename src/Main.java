@@ -49,8 +49,12 @@ public class Main {
                 System.out.println("");
                 System.out.println("Advice: Ollie Robins & Charlie Richardson");
                 System.out.println("");
+            } else if (intInput == 2) {
+                System.out.println();
+                System.out.println(words.getList());
+                System.out.println();
             }
-        } while (intInput != 2);
+        } while (intInput != 3);
         System.out.println("");
         System.out.println("Thank you for visiting!");
 

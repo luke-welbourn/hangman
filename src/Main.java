@@ -40,22 +40,22 @@ public class Main {
 
 
             } else if (intInput == 1) {
-                System.out.println("");
+                System.out.println();
                 System.out.println("Visuals: Luke Welbourn");
-                System.out.println("");
+                System.out.println();
                 System.out.println("Code: Luke Welbourn");
-                System.out.println("");
+                System.out.println();
                 System.out.println("Humour: Luke Welbourn");
-                System.out.println("");
+                System.out.println();
                 System.out.println("Advice: Ollie Robins & Charlie Richardson");
-                System.out.println("");
+                System.out.println();
             } else if (intInput == 2) {
                 System.out.println();
                 System.out.println(words.getList());
                 System.out.println();
             }
         } while (intInput != 3);
-        System.out.println("");
+        System.out.println();
         System.out.println("Thank you for visiting!");
 
     }

@@ -73,26 +73,6 @@ public class Guess {
     }
 
 
-
-    public void welcome() {
-        System.out.println();
-        System.out.println("welcome to hangman!");
-        System.out.println();
-        System.out.println("the rules:");
-        System.out.println();
-        System.out.println("you get 10 lives, you lose a life with each incorrect guess");
-        System.out.println();
-        System.out.println("each word contains only letters, so don't try numbers");
-        System.out.println();
-        System.out.println("if you see a bug in this game, it's an intended feature");
-        System.out.println();
-        System.out.println("good luck");
-        System.out.println();
-        System.out.println("press enter to begin");
-        String input = scanner.nextLine();
-
-    }
-
     public boolean finishCheck() {
 
         String elementToCheck = " _ ";
@@ -105,15 +85,19 @@ public class Guess {
     }
 
     public void checkUserGuess() {
+
         System.out.print("Enter a letter: ");
-        String input = scanner.nextLine();
-        if (input.isEmpty() || input.matches(".*[0-9].*")) {
+        String input = scanner.nextLine().trim();
+
+        while (input.isEmpty() || input.matches(".*[0-9].*")) {
             System.out.println();
             System.out.println("invalid input");
             System.out.println();
             System.out.print("Enter a letter: ");
             input = scanner.nextLine();
-        } else if (input.length() > 1) {
+        }
+
+        while (input.length() > 1) {
             System.out.println("Only one letter can be guessed at a time");
             System.out.println();
             System.out.print("Enter a letter: ");

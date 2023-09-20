@@ -1,4 +1,4 @@
-
+import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,7 +13,8 @@ public class Main {
             intInput = commands.getIntegerInput();
 
             if (intInput == 0) {
-                guess.welcome();
+                commands.welcome();
+                Collections.shuffle(words.words);
                 guess.startCurrent(words.getWord());
                 do {
                     System.out.println(guess.getCurrentGuess());
@@ -25,38 +26,24 @@ public class Main {
                     guess.finishCheck();
 
                 } while (!guess.finishCheck() && guess.getNoOfGuesses() > 0);
-                if (guess.getNoOfGuesses() <=0) {
-                    System.out.println();
-                    System.out.println("The game is now over, better luck next time");
-                    System.out.println();
+                if (guess.getNoOfGuesses() <= 0) {
+                    commands.displayLoss();
 
                 } else {
-                    System.out.println();
-                    System.out.println("Well done winning the game!");
-                    System.out.println();
+                    commands.displayWin();
                 }
                 guess.clearBoardState();
 
 
-
             } else if (intInput == 1) {
-                System.out.println();
-                System.out.println("Visuals: Luke Welbourn");
-                System.out.println();
-                System.out.println("Code: Luke Welbourn");
-                System.out.println();
-                System.out.println("Humour: Luke Welbourn");
-                System.out.println();
-                System.out.println("Advice: Ollie Robins & Charlie Richardson");
-                System.out.println();
+                commands.displayCredits();
             } else if (intInput == 2) {
                 System.out.println();
                 System.out.println(words.getList());
                 System.out.println();
             }
         } while (intInput != 3);
-        System.out.println();
-        System.out.println("Thank you for visiting!");
+        commands.displayGoodbye();
 
     }
 }

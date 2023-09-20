@@ -44,10 +44,70 @@ The project is organized into several Java classes, each serving a specific purp
 
 - `Words.java`: Contains a predefined list of words for the game. Words are randomly selected from this list.
 
+           List<String> words = new ArrayList<>(Arrays.asList(
+            "computer", "programming", "java", "hangman", "keyboard",
+            "developer", "algorithm", "application", "database", "software",
+            "variable", "function", "interface", "object", "inheritance",
+            "polymorphism", "encapsulation", "abstraction", "exception", "debugging"));
+
 - `Guess.java`: Implements the Hangman game logic, including word guessing, life management, and user interactions.
+
+    public void checkUserGuess() {
+
+        System.out.print("Enter a letter: ");
+        String input = scanner.nextLine();
+
+        while (input.isEmpty() || input.matches(".*[0-9].*")) {
+            System.out.println();
+            System.out.println("invalid input");
+            System.out.println();
+            System.out.print("Enter a letter: ");
+            input = scanner.nextLine();
+        }
+
+        while (input.length() > 1) {
+            System.out.println("Only one letter can be guessed at a time");
+            System.out.println();
+            System.out.print("Enter a letter: ");
+            input = scanner.nextLine();
+        }
+
+        for (int i = 0; i < (getCurrentWord()).length(); i++) {
+
+            if (getCurrentWord().charAt(i) == input.charAt(0)) {
+                alterCurrentGuess(currentGuess, i, input.charAt(0));
+                correctGuess= true;
+            }
+
+        }
+    }
 
 - `Commands.java`: Provides basic command-line interface functionalities for handling user input and displaying
   information.
+
+  public int getIntegerInput() {
+  System.out.println();
+  System.out.print("Enter your choice: ");
+  String input = scanner.nextLine().trim();
+
+        while (!input.matches("\\d+")) { // Check if input contains only digits
+            System.out.println();
+            System.out.println("Input must be a valid number");
+            System.out.println();
+            System.out.print("Enter your choice: ");
+            input = scanner.nextLine().trim();
+        }
+
+        int choice = Integer.parseInt(input);
+
+        while (choice < 0 || choice >= commands.length) {
+            System.out.println();
+            System.out.println("number must be between 0 and " + commands.length);
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+        }
+        return choice;
+  }
 
 ## Getting Started
 
@@ -60,7 +120,6 @@ To run the game on your local machine, follow these steps:
 3. Run the `Main` class to start the game in the console.
 
 4. Follow the on-screen instructions to play the game.
-
 
 ## About-Me
 
